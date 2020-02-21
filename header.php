@@ -16,33 +16,40 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php $logo = get_field('logo_img', 'option'); ?>
-			<a href="/">
-				<img src="<?php echo $logo['url']; ?>" alt="Logo image" />
-				<?php 
-					if (pll_current_language() == 'ru') {			
-						echo '<h1>' . the_field('text_under_logo_ru', 'option') . '</h1>' ;
-					} if (pll_current_language() == 'en') {
-						echo '<h1>' . the_field('text_under_logo_ru', 'option') . '</h1>' ;
-					}
+	<header id="header" class="site-header">
+
+		<div class="center header_inner clearfix">
+
+			<div class="site-branding  animated slideInLeft animated-slow">
+				<?php $logo = get_field('logo_img', 'option'); ?>
+				<a href="/">
+					<img src="<?php echo $logo['url']; ?>" alt="Logo image" />
+					<h1>
+						<?php 
+							if (pll_current_language() == 'ru') {			
+								the_field('text_under_logo_ru', 'option');
+							} if (pll_current_language() == 'en') {
+								the_field('text_under_logo_ru', 'option');
+							}
+						?>
+					</h1>
+				</a>
+			</div><!-- .site-branding -->
+
+			<div class="languages  animated slideInRight animated-slow">
+				<?php dynamic_sidebar( 'sidebar-1' ); ?>
+			</div><!--.languages -->
+
+			<nav id="site-navigation" class="main-navigation  animated slideInUp  animated-slow">
+				<?php
+				wp_nav_menu( array(
+					'theme_location' => 'menu-1',
+					'menu_id'        => 'primary-menu',
+				) );
 				?>
-			</a>
-		</div><!-- .site-branding -->
+			</nav><!-- #site-navigation -->
 
-		<nav id="site-navigation" class="main-navigation">
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
-		</nav><!-- #site-navigation -->
-
-		<div class="languages">
-			<?php dynamic_sidebar( 'sidebar-1' ); ?>
-		 </div><!--.languages -->
+		 </div>
 
 	</header><!-- #masthead -->
 

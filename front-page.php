@@ -14,7 +14,7 @@ get_header();
 
 			<div class="content_front_page">
 				<?php the_content(); ?>
-			</div>
+			 </div><!--.content_front_page -->
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

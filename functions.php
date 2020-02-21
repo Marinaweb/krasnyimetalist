@@ -169,7 +169,8 @@ function news_custom_post_type (){
                 'title',
 				'custom-fields',
 				'thumbnail',
-				'editor'
+				'editor',
+				'excerpt'
             ),
         'menu_position' => 5,
         'exclude_from_search' => false
@@ -177,3 +178,43 @@ function news_custom_post_type (){
     register_post_type('news',$args); 
 }
 add_action('init','news_custom_post_type');
+
+
+
+//  Add shortcode for news cpt to elementor
+// add_shortcode( 'news', 'news_posts', 100 );
+// function news_posts(){
+// 	$args = array(
+// 		'post_type' => 'news', 
+// 		'orderby'   => 'date',
+// 		'order'     => 'DESC',
+// 		'posts_per_page' => 4
+// 	);
+// 	$loop = new WP_Query($args); 
+// 	 $content = '';
+
+// 	 if( $loop->have_posts() ){
+// 	 $content .= '<div class="news_wrap clearfix">';
+// 		while( $loop->have_posts() ){
+// 		$loop->the_post();
+			
+// 			$content .= '<div class="news_item">';
+// 				$content .= '<p class="time">' . get_the_date('n F Y') . '</p>';
+// 				$content .= '<h3><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>';
+// 				$content .= '<div class="short_content">' . get_the_excerpt() . '</div>';
+// 				$content .= '<a class="more" href="' . get_the_permalink() . '"><i></i>';
+// 					if (pll_current_language() == 'ru') {			
+// 						$content .=  'Подробнее' ;
+// 					} if (pll_current_language() == 'en') {
+// 						$content .=  'More' ;
+// 					}
+// 				$content .= '</a>';
+// 			$content .= '</div>';
+			
+// 		}
+		
+// 	 $content .= '</div>';
+// 	 }
+ 
+//  return $content;
+// }
