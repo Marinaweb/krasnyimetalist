@@ -1,6 +1,7 @@
 <?php
 /**
- * The template for displaying all pages
+ * The template for displaying front page
+ *
  */
 
 get_header();
@@ -11,11 +12,9 @@ get_header();
 
 		<?php the_post(); ?>
 
-			<h1 class="h1_title"><?php the_title(); ?></h1>
-
-			<div class="content_simple_page">
+			<div class="content_front_page">
 				<?php the_content(); ?>
-			 </div><!--.content_simple_page -->
+			</div>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

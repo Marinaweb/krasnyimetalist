@@ -1,0 +1,19 @@
+* {
+	transition: all 0.3s;
+}
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table; 
+}
+.clearfix:after {
+  clear: both; 
+}
+body {
+	margin: 0 !important;
+}
+.center {
+	max-width: 1330px;
+	padding: 0 15px;
+	margin: auto;
+}

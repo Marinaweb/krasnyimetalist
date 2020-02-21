@@ -16,16 +16,6 @@ if ( ! function_exists( 'krasnyimetalist_setup' ) ) :
 	 * as indicating support for post thumbnails.
 	 */
 	function krasnyimetalist_setup() {
-		/*
-		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on krasnyimetalist, use a find and replace
-		 * to change 'krasnyimetalist' to the name of your theme in all the template files.
-		 */
-		load_theme_textdomain( 'krasnyimetalist', get_template_directory() . '/languages' );
-
-		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
 
 		/*
 		 * Let WordPress manage the document title.
@@ -59,26 +49,6 @@ if ( ! function_exists( 'krasnyimetalist_setup' ) ) :
 			'caption',
 		) );
 
-		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'krasnyimetalist_custom_background_args', array(
-			'default-color' => 'ffffff',
-			'default-image' => '',
-		) ) );
-
-		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
-
-		/**
-		 * Add support for core custom logo.
-		 *
-		 * @link https://codex.wordpress.org/Theme_Logo
-		 */
-		add_theme_support( 'custom-logo', array(
-			'height'      => 250,
-			'width'       => 250,
-			'flex-width'  => true,
-			'flex-height' => true,
-		) );
 	}
 endif;
 add_action( 'after_setup_theme', 'krasnyimetalist_setup' );
@@ -105,7 +75,7 @@ add_action( 'after_setup_theme', 'krasnyimetalist_content_width', 0 );
  */
 function krasnyimetalist_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'krasnyimetalist' ),
+		'name'          => esc_html__( 'Languages', 'krasnyimetalist' ),
 		'id'            => 'sidebar-1',
 		'description'   => esc_html__( 'Add widgets here.', 'krasnyimetalist' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -121,41 +91,89 @@ add_action( 'widgets_init', 'krasnyimetalist_widgets_init' );
  */
 function krasnyimetalist_scripts() {
 	wp_enqueue_style( 'krasnyimetalist-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'custom-css', get_template_directory_uri() . '/layouts/custom.css' );
 
-	wp_enqueue_script( 'krasnyimetalist-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
-	wp_enqueue_script( 'krasnyimetalist-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+	wp_enqueue_script( 'custom', get_template_directory_uri() . '/js/custom.js', array('jquery'), '', true );
 }
 add_action( 'wp_enqueue_scripts', 'krasnyimetalist_scripts' );
 
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
 
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
 
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-require get_template_directory() . '/inc/template-functions.php';
 
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
+// CUSTOM SETTINGS
 
-/**
- * Load Jetpack compatibility file.
- */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
+// ACF options page
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page(array(
+		'page_title' 	=> 'Настройки темы',
+		'menu_title'	=> 'Настройки темы',
+		'menu_slug' 	=> 'theme-general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));	
 }
 
+// Rename posts to "Продукты"
+add_filter('post_type_labels_post', 'rename_posts_labels');
+function rename_posts_labels( $labels ){
+	$new = array(
+		'name'                  => 'Продукты',
+		'singular_name'         => 'Продукт',
+		'add_new'               => 'Добавить продукт',
+		'add_new_item'          => 'Добавить продукт',
+		'edit_item'             => 'Редактировать продукт',
+		'new_item'              => 'Новый продукт',
+		'view_item'             => 'Просмотреть продукт',
+		'search_items'          => 'Поиск продуктов',
+		'not_found'             => 'Продукты не найдены.',
+		'not_found_in_trash'    => 'Продукты в корзине не найдены.',
+		'parent_item_colon'     => '',
+		'all_items'             => 'Все продукты',
+		'archives'              => 'Архивы продуктов',
+		'insert_into_item'      => 'Вставить в продукт',
+		'uploaded_to_this_item' => 'Загруженные для этого продукта',
+		'featured_image'        => 'Миниатюра продукт',
+		'filter_items_list'     => 'Фильтровать список продуктов',
+		'items_list_navigation' => 'Навигация по списку продуктов',
+		'items_list'            => 'Список продуктов',
+		'menu_name'             => 'Продукты',
+		'name_admin_bar'        => 'Продукт', 
+	);
+
+	return (object) array_merge( (array) $labels, $new );
+}
+
+// CPT news
+function news_custom_post_type (){
+
+    $labels = array(
+        'name' => 'Новости',
+        'singular_name' => 'Новость',
+        'add_new' => 'Добавить новость',
+        'all_items' => 'Все новости',
+        'add_new_item' => 'Добавить новость',
+        'edit_item' => 'Редактировать новость',
+        'new_item' => 'Новая новость',
+        'view_item' => 'Просмотр новости',
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'has_archive' => true,
+        'publicly_queryable' => true,
+        'query_var' => true,
+        'rewrite' => true,
+        'capability_type' => 'post',
+        'hierarchical' => false,
+        'supports' => array(
+                'title',
+				'custom-fields',
+				'thumbnail',
+				'editor'
+            ),
+        'menu_position' => 5,
+        'exclude_from_search' => false
+    );
+    register_post_type('news',$args); 
+}
+add_action('init','news_custom_post_type');
