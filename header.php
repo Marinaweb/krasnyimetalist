@@ -20,11 +20,11 @@
 
 		<div class="center header_inner clearfix">
 
-			<div class="site-branding  animated slideInLeft animated-slow">
+			<div class="site-branding animated fadeInUp animated-slow">
 				<?php $logo = get_field('logo_img', 'option'); ?>
 				<a href="/">
 					<img src="<?php echo $logo['url']; ?>" alt="Logo image" />
-					<h1>
+					<h2>
 						<?php 
 							if (pll_current_language() == 'ru') {			
 								the_field('text_under_logo_ru', 'option');
@@ -32,19 +32,19 @@
 								the_field('text_under_logo_ru', 'option');
 							}
 						?>
-					</h1>
+					</h2>
 				</a>
 			</div><!-- .site-branding -->
 
-			<div class="languages  animated slideInRight animated-slow">
+			<div class="languages  animated fadeInUp animated-slow">
 				<?php dynamic_sidebar( 'sidebar-1' ); ?>
 			</div><!--.languages -->
 
-			<nav id="site-navigation" class="main-navigation  animated slideInUp  animated-slow">
+			<nav id="site-navigation" class="main-navigation animated fadeInUp animated-slow">
 				<?php
 				wp_nav_menu( array(
 					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
+					'menu_id'        => 'primary-menu', 
 				) );
 				?>
 			</nav><!-- #site-navigation -->

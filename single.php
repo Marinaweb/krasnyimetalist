@@ -2,9 +2,6 @@
 /**
  * The template for displaying all single posts
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package krasnyimetalist
  */
 
 get_header();
@@ -12,23 +9,26 @@ get_header();
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
+			<?php $cat_bg = get_field('product_bg', 'option'); ?>	
+			<header class="page-header archive_header" style="background-image: url(<?php echo $cat_bg['url']; ?>);">
+				<div class="center">
+					<h1 class="page-title"><?php the_title(); ?></h1>
+					<ul class="breadcrumbs">
+						<?php if(function_exists('bcn_display_list')) { bcn_display_list(); }?>
+					</ul>
+				</div>
+			</header><!-- .page-header -->
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+			<div class="product_wrap center clearfix">
 
-			get_template_part( 'template-parts/content', get_post_type() );
-
-			the_post_navigation();
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
-
+				<article class="single_product_content products">
+					<?php the_post(); ?>
+					<?php the_content(); ?>
+				 </article><!--.single_product_content -->
+				
+				<?php get_sidebar(); ?>
+				
+			</div><!--.product_wrap -->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
