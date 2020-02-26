@@ -15,8 +15,20 @@ get_header();
 
 			<?php if ( have_posts() ) : ?>
 
-				<?php $cat_bg = get_field('cat_bg', 'option'); ?>	
-				<header class="page-header archive_header" style="background-image: url(<?php echo $cat_bg['url']; ?>);">
+				<?php 
+					$cat_bg_1 = get_field('cat_bg_1', 'option'); 
+					$cat_bg_2 = get_field('cat_bg_2', 'option'); 
+					$cat_bg_3 = get_field('cat_bg_3', 'option'); 
+				?>	
+				
+				<header class="page-header archive_header" 
+						style="background-image: url(
+							<?php 
+								if ( is_category(array(13, 15, 33, 37, 41, 53, 45, 49, 35, 39, 51, 47, 43, 55) ) ) {  echo $cat_bg_1['url']; } 
+								elseif ( is_category(array(17, 19) ) ) {  echo $cat_bg_2['url']; } 
+								elseif ( is_category(array(21, 24) ) ) {  echo $cat_bg_3['url']; } 
+							?>
+						);">
 					<div class="center">
 						<h1 class="page-title"><?php single_cat_title(); ?></h1>
 						<ul class="breadcrumbs">
