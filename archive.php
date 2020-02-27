@@ -67,8 +67,10 @@ get_header();
 
 						</div><!--.products -->
 
-						<?php else :
-						get_template_part( 'template-parts/content', 'none' ); ?>
+						<?php else : ?>
+							<div class="center no_posts">
+								<p>В данной категории пока нет продуктов.</p>
+							</div>
 
 				</div><!-- .product_wrap -->
 
