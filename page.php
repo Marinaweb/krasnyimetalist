@@ -10,10 +10,18 @@ get_header();
 		<main id="main" class="site-main">
 
 		<?php the_post(); ?>
-		<?php $cat_bg_1 = get_field('cat_bg_1', 'option'); ?>
-			<header class="page-header archive_header" style="background-image: url(<?php echo $cat_bg_1['url']; ?> );">
+		<?php $header_bg = get_field('header_bg'); ?>
+			<header class="page-header archive_header" style="background-image: url(<?php echo $header_bg['url']; ?> );">
 				<div class="center">
-					<h1 class="page-title"><?php the_title(); ?></h1>
+					<h1 class="page-title">
+						<?php 
+							if ( get_field('header_title') ) {
+								the_field('header_title'); 
+							} else {
+								the_title();
+							}
+						?>
+					</h1>
 					<ul class="breadcrumbs">
 						<?php if(function_exists('bcn_display_list')) { bcn_display_list(); }?>
 					</ul>

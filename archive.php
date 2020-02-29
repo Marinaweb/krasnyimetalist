@@ -68,8 +68,10 @@ get_header();
 						</div><!--.products -->
 
 						<?php else : ?>
-							<div class="center no_posts">
-								<p>В данной категории пока нет продуктов.</p>
+							<div class="no_posts">
+								<div class="center">
+									<p>В данной категории пока нет продуктов.</p>
+								</div>
 							</div>
 
 				</div><!-- .product_wrap -->

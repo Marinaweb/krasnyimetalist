@@ -9,8 +9,8 @@
 }
 @font-face {
     font-family: 'Montserrat';
-    src: url('/wp-content/themes/krasnyimetalist/fonts/Montserrat.woff2') format('woff2'),
-         url('/wp-content/themes/krasnyimetalist/fonts/Montserrat.woff') format('woff'),
+    src:  /*url('/wp-content/themes/krasnyimetalist/fonts/Montserrat.woff2') format('woff2'), */
+         /* url('/wp-content/themes/krasnyimetalist/fonts/Montserrat.woff') format('woff'), */
 		 url('/wp-content/themes/krasnyimetalist/fonts/Montserrat.ttf') format('ttf');
     font-weight: normal;
     font-style: normal;
@@ -112,7 +112,9 @@ body {
 	padding: 3px 0;
 }
 .main-navigation a:hover,
-li.event_none:hover a {
+li.event_none:hover a,
+.current-menu-item a,
+.current_page_parent > a {
 	border-bottom: 3px solid #BB1818;
 }
 .main-navigation ul.sub-menu {
@@ -620,11 +622,14 @@ h2.elementor-heading-title {
 
 
 /* Category page  */
-.page-header h1 {
+.page-header h1.page-title {
 	margin: 0;
 	text-transform: uppercase;
     color: white;
-	font-size: 29px;
+	font-size: 40px;
+	line-height: 49px;
+	font-weight: bold;
+	font-family: Montserrat;
 	text-align: center;
 }
 .page-header {
@@ -888,12 +893,6 @@ body.single-post .elementor-inner-column .elementor-column-wrap.elementor-elemen
 .tablepress tbody td, .tablepress tfoot th {
     border-right: 1px solid #ddd !important;
 }
-.small_table {
-	/* width: 50% !important; */
-}
-.elementor-element-5905af1 .column-2 {
-	/* width: 150px !important; */
-}
 #tablepress-53 .row-2 td {
 	font-size: 14px;
 }
@@ -948,4 +947,98 @@ body.postid-869 .single_product_content > .elementor {
 }
 .no_posts {
 	padding: 200px 0 50px 0;
+	background: #20202157;
+}
+
+
+/* About us  */
+.page-id-15 .page-header,
+.page-id-940 .page-header {
+	background-position: 0 -257px;
+}    
+.page-header {
+	position: relative;
+}
+.page-header:before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #00000091;
+	display: block;
+}
+.page-header > div {
+	position: relative;
+}
+.elementor-element-a80fbaf p {
+	color: #3A3A3A;
+}
+.elementor-element-b9b1efb p,
+.elementor-element-9319e7b p,
+.elementor-element-930eac9 p {
+	margin: 0;
+	font-size: 16px;
+	line-height: 28px;
+}
+.elementor-element-9319e7b p,
+.elementor-element-930eac9 p {
+	color: #3A3A3A;
+}
+ span.line {
+	display: inline-block;
+	width: 6px;
+	height: 19px;
+	overflow: hidden;
+}
+.elementor-element-7d560d9 h2.elementor-heading-title {
+	font-family: Montserrat;
+	font-weight: bold;
+}
+.elementor-element-930eac9 span.year {
+	color: #BB1818;
+	font-size: 20px;
+	line-height: 30px;
+}
+.elementor-element-930eac9 {
+	max-width: 710px;
+}
+#header.common_header {
+	height: 100px;
+	background: rgba(0, 0, 0, 0.89);
+	padding: 10px 0;
+}
+.common_content {
+	padding-top: 100px;
+}
+.common_header .site-branding h2 {
+	font-weight: 900;
+    font-size: 11px;
+	line-height: 16px;
+	margin-top: 6px;
+}
+.common_header .main-navigation a,
+.common_header .languages ul li a {
+    font-weight: 500;
+    font-size: 14px;
+	line-height: 16px; 
+}
+.common_header .main-navigation .menu > li {
+    padding: 10px 37px;
+}
+.common_header .main-navigation {
+	padding-top: 23px;
+}
+.common_header .languages {
+	padding-top: 31px;
+}
+#header.common_header.scrolled  {
+	height: auto;
+    background: #202021;
+    padding: 10px 0 5px 0;
+}
+#header.common_header.scrolled .site-branding h2 {
+	font-size: 9px;
+	margin-top: 0;
 }

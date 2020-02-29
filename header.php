@@ -16,14 +16,18 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<header id="header" class="site-header">
+	<header id="header" class="site-header <?php if ( !is_front_page() ) { echo 'common_header'; } ?>">
 
 		<div class="center header_inner clearfix">
 
 			<div class="site-branding animated fadeInUp animated-slow">
-				<?php $logo = get_field('logo_img', 'option'); ?>
-				<a href="/">
-					<img src="<?php echo $logo['url']; ?>" alt="Logo image" />
+				<?php
+				  $logo = get_field('logo_img', 'option'); 
+				  $logo_common = get_field('logo_img_common', 'option'); 
+				?>
+
+				<a href="<?php echo home_url(); ?>">
+					<img src="<?php if ( is_front_page() ) { echo $logo['url']; } else { echo $logo_common['url']; } ?>" alt="Logo image" />
 					<h2>
 						<?php 
 							if (pll_current_language() == 'ru') {			
@@ -53,4 +57,4 @@
 
 	</header><!-- #masthead -->
 
-	<div id="content" class="site-content">
+	<div id="content" class="site-content <?php if ( !is_front_page() ) { echo 'common_content'; } ?>">

@@ -10,6 +10,7 @@ jQuery(document).ready(function(){
         }
     });
 
-
+    jQuery("html:lang(en-us) .breadcrumbs li.home a.home span").text("Home");
+    jQuery("html:lang(en-us) .breadcrumbs li.home a.home").attr("href", "/en/main/");
 
 });
