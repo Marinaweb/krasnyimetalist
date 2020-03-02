@@ -814,7 +814,7 @@ h2.elementor-heading-title {
 	color: grey!important;
 }
 .breadcrumbs li.current-item span {
-	color: #a07979;
+	color: #ffffff;
 	font-size: 14px;
 }
 .breadcrumbs li a:hover {
@@ -941,8 +941,7 @@ body.single-post .elementor-inner-column .elementor-column-wrap.elementor-elemen
 #tablepress-80 .column-2 {
 	width: 180px;
 }
-body.postid-861 .single_product_content > .elementor,
-body.postid-869 .single_product_content > .elementor {
+.single_product_content > .elementor {
 	width: 100%;
 }
 .no_posts {
@@ -1041,4 +1040,83 @@ body.postid-869 .single_product_content > .elementor {
 #header.common_header.scrolled .site-branding h2 {
 	font-size: 9px;
 	margin-top: 0;
+}
+
+/* Contacts  */
+.elementor-element-47cd08c .elementor-column-wrap.elementor-element-populated {
+	padding: 0 !important;
+}
+.elementor-element-5be43b4 input,
+.elementor-element-5be43b4 textarea {
+	width: 100%;
+	height: 38px;
+	padding: 0 15px;
+}
+.elementor-element-5be43b4 textarea {
+	height: 120px;
+	resize: none;
+	padding: 7px 15px;
+}
+.elementor-element-6e5de3b h3 {
+	text-transform: uppercase;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Montserrat;
+}
+.elementor-element-6e5de3b label {
+	font-size: 18px;
+    color: #6c6c6c;
+    line-height: 36px;
+}
+.elementor-element-5be43b4 form p {
+	margin: 10px 0;
+}
+.elementor-element-7d038fe h3 {
+	font-size: 25px;
+}
+.elementor-element-5be43b4 input[type="submit"] {
+	background: #bb1818;
+    color: white;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 15px;
+    height: 55px;
+    border: 0;
+    width: 300px;
+    font-weight: 700;
+	cursor: pointer;
+	margin-top: 25px;;
+}
+.elementor-element-5be43b4 input[type="submit"]:hover {
+	background: #202021;
+}
+.elementor-element-bbc8ac3 h3 {
+	color: white;
+	background: #bb1818;
+	padding: 10px 10px 8px 15px;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+}
+.elementor-element-bbc8ac3 a {
+    color: #202021;
+    font-size: 18px;
+	padding: 1px 0;
+	line-height: 32px;
+	border-bottom: 2px solid transparent;
+}
+.elementor-element-bbc8ac3 a:hover {
+	border-bottom: 2px solid red;
+}
+.addr {
+	color: black;
+    font-size: 17px;
+}
+.elementor-element-5be43b4 input:focus,
+.elementor-element-5be43b4 textarea:focus {
+	outline: 1px solid red;
+	background: #2020210d;
 }
