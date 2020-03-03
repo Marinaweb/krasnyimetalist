@@ -44,7 +44,14 @@
 				<?php dynamic_sidebar( 'sidebar-1' ); ?>
 			</div><!--.languages -->
 
+			<div class="menu_mob_icon animated fadeInUp">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+			
 			<nav id="site-navigation" class="main-navigation animated fadeInUp animated-slow">
+				<i class="close">X</i>
 				<?php
 				wp_nav_menu( array(
 					'theme_location' => 'menu-1',
