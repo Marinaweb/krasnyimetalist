@@ -12,6 +12,9 @@ jQuery(document).ready(function(){
 
     jQuery("html:lang(en-us) .breadcrumbs li.home a.home span").text("Home");
     jQuery("html:lang(en-us) .breadcrumbs li.home a.home").attr("href", "/en/main/");
+	jQuery("html:lang(ru-RU) .breadcrumbs li a.post.post-news-archive").attr("href", "/novosti/");
+	jQuery("html:lang(en-us) .breadcrumbs li a.post.post-news-archive").attr("href", "/en/news-en/");
+	jQuery("html:lang(en-us) .breadcrumbs li a.post.post-news-archive").text("News");
 	
 	jQuery('.menu_mob_icon').click(function() {
 		jQuery('#site-navigation').addClass('show_menu');

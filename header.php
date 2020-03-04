@@ -12,6 +12,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php wp_head(); ?>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap" rel="stylesheet">
 </head>
 
 <body <?php body_class(); ?>>
@@ -33,7 +34,7 @@
 							if (pll_current_language() == 'ru') {			
 								the_field('text_under_logo_ru', 'option');
 							} if (pll_current_language() == 'en') {
-								the_field('text_under_logo_ru', 'option');
+								the_field('text_under_logo_en', 'option');
 							}
 						?>
 					</h2>

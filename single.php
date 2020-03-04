@@ -15,7 +15,7 @@ get_header();
 				$cat_bg_3 = get_field('cat_bg_3', 'option'); 
 			?>	
 							
-			<header class="page-header archive_header" 
+			<header class="page-header archive_header <?php if ( in_category(array(17, 19))) { echo 'no_after'; } ?>" 
 					style="background-image: url(
 					<?php 
 						if (  in_category(array(13, 15, 33, 37, 41, 53, 45, 49, 35, 39, 51, 47, 43, 55) ) ) {  echo $cat_bg_1['url']; } 

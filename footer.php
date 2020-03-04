@@ -25,7 +25,7 @@
 							if (pll_current_language() == 'ru') {			
 								the_field('text_under_logo_ru', 'option');
 							} if (pll_current_language() == 'en') {
-								the_field('text_under_logo_ru', 'option');
+								the_field('text_under_logo_en', 'option');
 							}
 						?>
 					</h4>
